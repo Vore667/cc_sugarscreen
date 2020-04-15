@@ -1,5 +1,6 @@
-PVector pos = new PVector(0,0);
-PVector dir = new PVector(1,1);
+PVector pos = new PVector(random(548)+26,random(548)+26);
+float randomNumber = 1 + random(3);
+PVector dir = new PVector(randomNumber,randomNumber);
 
 void setup(){
   
@@ -16,12 +17,16 @@ void draw(){
   ellipse(pos.x, pos.y, 50, 50);
   pos.x += dir.x;
   pos.y += dir.y;
-  if (pos.x >= 600 && pos.y >= 600){
-    dir.x = -1;
-    dir.y = -1;
+  if (pos.x >= 600){
+    dir.x = -randomNumber;
   }
-  else if (pos.x <= 0 && pos.y <= 0){
-    dir.x = 1;
-    dir.y = 1;
+  else if (pos.x <= 0){
+    dir.x = randomNumber;
+  }
+  else if (pos.y >= 600){
+    dir.y = -randomNumber;
+  }
+  else if (pos.y <= 0){
+    dir.y = randomNumber;
   }
 }
